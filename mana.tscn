@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpd7aq4w63rij"]
+
+[ext_resource type="Texture2D" uid="uid://ew0h3b7xbgjn" path="res://mana.png" id="1_a7xeh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avkrf"]
+size = Vector2(108, 369)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aayy0"]
+size = Vector2(37, 33)
+
+[node name="Mana" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a7xeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 26.5)
+shape = SubResource("RectangleShape2D_avkrf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-60.5, -102.5)
+shape = SubResource("RectangleShape2D_aayy0")

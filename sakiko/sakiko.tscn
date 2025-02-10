@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qhelvv4t0gc"]
+
+[ext_resource type="Script" path="res://sakiko/sakiko.gd" id="1_g47ql"]
+[ext_resource type="Texture2D" uid="uid://c8beonx0l4815" path="res://sakiko/sakikor.png" id="2_qvtx1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3m6hw"]
+radius = 3.55719
+
+[node name="Sakiko" type="RigidBody2D" groups=["sakiko"]]
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_g47ql")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["sakiko"]]
+scale = Vector2(0.336545, 0.344735)
+texture = ExtResource("2_qvtx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["sakiko"]]
+position = Vector2(0, 1)
+scale = Vector2(-16.0465, 20.4145)
+shape = SubResource("CircleShape2D_3m6hw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

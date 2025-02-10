@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://mc4eblkwpoj3"]
+
+[ext_resource type="Script" path="res://soyo/soyo.gd" id="1_1ikgt"]
+[ext_resource type="Texture2D" uid="uid://bdo367rri1ri2" path="res://soyo/soyo.png" id="1_xo8ki"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfejb"]
+radius = 29.2812
+height = 58.5624
+
+[node name="Soyo" type="RigidBody2D" groups=["soyo"]]
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_1ikgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["soyo"]]
+texture = ExtResource("1_xo8ki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["soyo"]]
+position = Vector2(-7, -2)
+scale = Vector2(1.26513, 2.08325)
+shape = SubResource("CapsuleShape2D_hfejb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

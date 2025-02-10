@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://knso6e365c68"]
+
+[ext_resource type="Texture2D" uid="uid://y1qt7ti00he8" path="res://DonuMana.png" id="1_3p44u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdhn4"]
+size = Vector2(34.9191, 28.6142)
+
+[node name="Ground" type="StaticBody2D"]
+scale = Vector2(1, 0.996536)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(554, 581)
+scale = Vector2(2, 0.335473)
+texture = ExtResource("1_3p44u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(551.5, 583.5)
+rotation = -3.14159
+scale = Vector2(16.4094, -3.8093)
+shape = SubResource("RectangleShape2D_jdhn4")

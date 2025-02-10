@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceahnbxfao658"]
+
+[ext_resource type="Script" path="res://rikki/rikki.gd" id="1_w0ok0"]
+[ext_resource type="Texture2D" uid="uid://caxqdwb6mnvx0" path="res://rikki/rikki_r.png" id="2_vs3tr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vxukx"]
+radius = 11.8435
+height = 33.4724
+
+[node name="Rikki" type="RigidBody2D" groups=["rikki"]]
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_w0ok0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["rikki"]]
+position = Vector2(-7, -11)
+scale = Vector2(0.355235, 0.170467)
+texture = ExtResource("2_vs3tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["rikki"]]
+position = Vector2(-4, -11)
+scale = Vector2(12, 5.39)
+shape = SubResource("CapsuleShape2D_vxukx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

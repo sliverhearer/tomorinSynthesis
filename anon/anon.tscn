@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://crm7lv21m24on"]
+
+[ext_resource type="Texture2D" uid="uid://dug4pvh5exrr6" path="res://anon/qanon1.png" id="1_bu8ns"]
+[ext_resource type="Script" path="res://anon/anon.gd" id="1_jui6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ws65o"]
+
+[node name="Anon" type="RigidBody2D" groups=["anon"]]
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_jui6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["anon", "fruit"]]
+scale = Vector2(0.32252, 0.354005)
+texture = ExtResource("1_bu8ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["anon"]]
+position = Vector2(-8, 0)
+scale = Vector2(3.24984, 5.81168)
+shape = SubResource("CircleShape2D_ws65o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnxf73jk1pes2"]
+
+[ext_resource type="Script" path="res://mortis/mortis.gd" id="1_inyip"]
+[ext_resource type="Texture2D" uid="uid://btyvyxwrkak6y" path="res://mortis/mortis_r.png" id="2_u1kkk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jc7gg"]
+
+[node name="Mortis" type="RigidBody2D" groups=["mortis"]]
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_inyip")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["mortis"]]
+position = Vector2(44, 0)
+scale = Vector2(0.22744, 0.275519)
+texture = ExtResource("2_u1kkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["mortis"]]
+position = Vector2(4, -1)
+scale = Vector2(5.15746, -5.4086)
+shape = SubResource("CapsuleShape2D_jc7gg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
